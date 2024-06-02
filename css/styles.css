@@ -28,7 +28,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 33.3%;
+    width: 100%;
     margin-top: 2rem;
     margin-bottom: 1.25rem;
 }
@@ -175,4 +175,113 @@ a .btnMenu{
         box-shadow: inset 3px 3px 0 rgba(255, 255, 255, 0.5), inset -3px -3px 0 rgba(0, 0, 0, 0.5);
         cursor: pointer;
 }
+}
+
+@media only screen and (max-width: 375px) {
+
+    a{
+        width: 100%;
+    }
+
+    .btnMenu{
+        width: 100%;
+    }
+    
+    .menuOpciones{
+        width: 100%;
+    }
+
+    .menuPrincipal{
+        width: 95%;
+    }
+
+    .dark-mode a{
+        width: 100%;
+    }
+
+}
+
+@media only screen and (max-width: 425px) {
+
+    a{
+        width: 95%;
+    }
+
+    .btnMenu{
+        width: 95%;
+    }
+    
+    .menuOpciones{
+        width: 100%;
+    }
+
+    .menuPrincipal{
+        width: 80%;
+    }
+
+    .dark-mode a{
+        width: 95%;
+    }
+
+    .dark-mode .btnMenu{
+        width: 95%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+
+    a{
+        width: 95%;
+    }
+
+    .btnMenu{
+        width: 95%;
+    }
+    
+    .menuOpciones{
+        width: 100%;
+    }
+
+    .menuPrincipal{
+        width: 60%;
+    }
+
+    .dark-mode a{
+        width: 95%;
+    }
+
+    .dark-mode .btnMenu{
+        width: 95%;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .btnMenu {
+    background: #fbfbfe;
+    color: #2a3b47;
+    width: 50%;
+    padding: .8rem 0;
+    margin-bottom: .75rem;
+    /* text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.8); */
+    font-size: 1.25rem;
+    letter-spacing: .025em;
+    border: none;
+    border-radius: 55%;
+    box-shadow: inset 3px 3px 0 rgba(255, 255, 255, 0.5), inset -3px -3px 0 rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    }
+
+    a{
+        width: 50%;
+    }
+
+    .menuPrincipal {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin-top: 2rem;
+        margin-bottom: 1.25rem;
+    }
 }
