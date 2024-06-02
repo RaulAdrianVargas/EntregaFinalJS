@@ -5,7 +5,7 @@ let oro = 50;
 let armaActual = 0;
 let luchando;
 let saludMonstruo;
-let inventario = ['palo'];
+let mochila = ['palo'];
 
 let eleccionJugador;
 const boton1 = document.querySelector('#button1');
@@ -41,19 +41,24 @@ const weapons = [
 
 const monsters = [
     {
-        name:"slime",
+        name:"Slime",
         level: 2,
         health:15, 
     },
     {
-        name:"Bestia Peligrosa",
+        name:"Lobo",
         level: 8,
         health:60, 
     },
     {
-        name:"Dragon",
+        name:"Oso Gigante",
         level: 20,
         health: 300, 
+    },
+    {
+        name:"Ladrón",
+        level: 30,
+        health: 250,
     },
 ]
 
@@ -96,8 +101,8 @@ const locations = [
     },
     {
         name: "win",
-        "button text": ["Volver a jugar?","Volver a jugar?","Volver al menu principal"],
-        "button functions":[restart, restart, menuPrincipal],
+        "button text": ["Volver a jugar?","Ir a un nuevo pueblo","Volver al menu principal"],
+        "button functions":[restart, viajePeligroso, menuPrincipal],
         text: "Mataste al jefe final! GANASTE!! "
     },
     { 
@@ -186,27 +191,27 @@ function buyWeapon(){
             armaActual++;
             textoOro.innerText = oro;
             let newWeapon = weapons[armaActual].name;
-            texto.innerText = "Compraste una nueva arma: " + newWeapon + ". ";
-            inventario.push(newWeapon);
-            texto.innerText += "Ahora tenes: "+ inventario;
+            texto.innerText = "Compraste una nueva arma: " + newWeapon + " . ";
+            mochila.push(newWeapon);
+            texto.innerText += "Ahora tenes: "+ mochila;
         }else{
             texto.innerText= "No tenes suficientes monedas para comprar un armita."
         }
     }else{
         texto.innerText= "Ya tenes el arma mas poderosa del jueguito.";
-        boton2.innerText = "Vender arma por 15 monedas.";
+        boton2.innerText = "Vender armas viejas por 15 monedas.";
         boton2.onclick= sellWeapon;
     }
 }
 
 
 function sellWeapon(){
-    if(inventario.length > 1){
+    if(mochila.length > 1){
         oro += 15;
         textoOro.innerText = oro;
-        let armaActual = inventario.shift();
+        let armaActual = mochila.shift();
         texto.innerText= "Vendiste: "+ armaActual;
-        texto.innerText+= "Ahora tenes: " + inventario;
+        texto.innerText+= "Ahora tenes: " + mochila;
     }else{
         texto.innerText="No vendas tu unica arma!.";
     }
@@ -225,6 +230,11 @@ function fightBeast(){
 
 function fightBoss(){
     luchando = 2;
+    goFight();
+}
+
+function fightLadron(){
+    luchando = 3;
     goFight();
 }
 
@@ -316,6 +326,31 @@ function ganaste(){
     update(locations[6]);
 }
 
+function viajePeligroso(){
+    const eventoAlAzar = Math.floor(Math.random() * 3) + 1;
+
+        if (eventoAlAzar === 1) {
+            console.log("Te encontraste con alguien amistoso. Ganas 50 monedas, recuperas 50 puntos de vida.");
+        texto.innerText = "Te encontraste con alguien amistoso. Ganas 50 monedas, recuperas 50 puntos de vida.";
+        oro += 50;
+        salud += 50;
+        textoOro.innerText = oro;
+        textoSalud.innerText = salud;
+        } else if (eventoAlAzar === 2) {
+            console.log("Te encontraste con un enemigo. Pierdes 100 de vida y te roba 100 monedas.");
+            texto.innerText = "Te encontraste con un enemigo. Pierdes 50 de vida y te roba 50 monedas.";
+            oro = Math.max(oro - 50, 0);
+            salud = Math.max(salud - 50, 0);
+            textoOro.innerText = oro;
+            textoSalud.innerText = salud;
+        
+        } else if (eventoAlAzar === 3){
+            console.log("Escuchas un ruido que viene desde los matorrales. Te ataca un ladrón.");
+        texto.innerText = "Mientras vas por el sendero, escuchas un ruido que viene desde los matorrales.\nTe ataca un ladrón!";
+        setTimeout(fightLadron, 2000);  
+        }
+}
+
 function menuPrincipal(){
     window.location.href = '../index.html';
 }
@@ -326,7 +361,7 @@ function restart(){
     salud = 100;
     oro = 50;
     armaActual = 0;
-    inventario = ['palo'];
+    mochila = ['palo'];
     textoOro.innerText = oro;
     textoSalud.innerText = salud;
     textoXp.innerText = exp;
