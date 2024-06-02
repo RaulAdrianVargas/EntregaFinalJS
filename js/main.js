@@ -308,6 +308,7 @@ function sweetAlertExit(){
             <a href="https://github.com/RaulAdrianVargas?tab=repositories" target="_blank">https://github.com/RaulAdrianVargas?tab=repositories</a><br>
             Mi Instagram<br>
             <a href="https://www.instagram.com/adruuch" target="_blank">https://www.instagram.com/adruuch</a><br>
+
             Mi Correo<br>
             <a href="mailto:rauladrianvargas@gmail.com" target="_blank">rauladrianvargas@gmail.com</a><br>
         `,
