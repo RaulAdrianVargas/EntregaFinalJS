@@ -111,6 +111,12 @@ const locations = [
         "button functions":[cara, cruz, goTown], 
         text: "Queres jugar al cara o cruz? La apuesta vale 10 monedas. Si ganas te llevas 50. Y si perdes, perdes 20 de vida." 
     },
+    { 
+        name: "pueblito 2", 
+        "button text": ["Tienda","Bosque","Volver al pueblo anterior"], 
+        "button functions":[goStore, goCave, goTown], 
+        text: "Queres jugar al cara o cruz? La apuesta vale 10 monedas. Si ganas te llevas 50. Y si perdes, perdes 20 de vida." 
+    },
 ];
 
 // botones de inicializacion
@@ -157,6 +163,10 @@ function update(location){
 
 function goTown(){
     update(locations[0]);
+}
+
+function goTown2(){
+    update(locations[8]);
 }
 
 function goStore(){
@@ -336,14 +346,20 @@ function viajePeligroso(){
         salud += 50;
         textoOro.innerText = oro;
         textoSalud.innerText = salud;
+        setTimeout(goTown2, 2000);
+
         } else if (eventoAlAzar === 2) {
-            console.log("Te encontraste con un enemigo. Pierdes 100 de vida y te roba 100 monedas.");
+            if(oro >= 50 && salud >=50){
+            console.log("Te encontraste con un enemigo. Pierdes 50 de vida y te roba 50 monedas.");
             texto.innerText = "Te encontraste con un enemigo. Pierdes 50 de vida y te roba 50 monedas.";
-            oro = Math.max(oro - 50, 0);
-            salud = Math.max(salud - 50, 0);
+            oro = Math.max(oro - 50);
+            salud = Math.max(salud - 50);
             textoOro.innerText = oro;
             textoSalud.innerText = salud;
-        
+            }else{
+                texto.innerText= "Te encontraste con alguien demasiado poderoso. Te da una paliza y te deja en la entrada del pueblo."
+                setTimeout(goTown, 2000);
+            }
         } else if (eventoAlAzar === 3){
             console.log("Escuchas un ruido que viene desde los matorrales. Te ataca un ladrón.");
         texto.innerText = "Mientras vas por el sendero, escuchas un ruido que viene desde los matorrales.\nTe ataca un ladrón!";
