@@ -280,7 +280,53 @@ a .btnMenu{
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 100%;
+        width: 50%;
+        margin-top: 2rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .dark-mode .btnMenu {
+        background: #161616;
+        color: #6fb1bd;
+        width: 50%;
+        padding: .8rem 0;
+        margin-bottom: .75rem;
+        /* text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.8); */
+        font-size: 1.25rem;
+        letter-spacing: .025em;
+        border: none;
+        border-radius: 55%;
+        box-shadow: inset 3px 3px 0 rgba(255, 255, 255, 0.5), inset -3px -3px 0 rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .btnMenu {
+    background: #fbfbfe;
+    color: #2a3b47;
+    width: 50%;
+    padding: .8rem 0;
+    margin-bottom: .75rem;
+    /* text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.8); */
+    font-size: 1.25rem;
+    letter-spacing: .025em;
+    border: none;
+    border-radius: 55%;
+    box-shadow: inset 3px 3px 0 rgba(255, 255, 255, 0.5), inset -3px -3px 0 rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    }
+
+    a{
+        width: 50%;
+    }
+
+    .menuPrincipal {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
         margin-top: 2rem;
         margin-bottom: 1.25rem;
     }

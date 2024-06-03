@@ -1,6 +1,7 @@
 *{
     box-sizing: border-box;
     overflow: hidden;
+    font-size: 30px;
 }
 
 body {
@@ -113,13 +114,12 @@ button{
     #text,
     #game,
     #controls,
-    #stats,
-    #monsterStats {
-        font-size: 18px;
+    #stats{
+        font-size: 21px;
     }
 
     button {
-        font-size: 18px;
+        font-size: 21px;
         padding: 16px 20px; /* Aumentamos el padding para hacer los botones más grandes */
     }
 }
