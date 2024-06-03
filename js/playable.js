@@ -119,6 +119,8 @@ const locations = [
     },
 ];
 
+const locationsJSON = JSON.stringify(locations, null, 2);
+console.log(locationsJSON);
 // botones de inicializacion
 
 const closeButton = document.querySelector('#closeButton');
@@ -384,6 +386,3 @@ function restart(){
     goTown();
 }
 });
-
-const locationsJSON = JSON.stringify(locations, null, 2);
-console.log(locationsJSON);
