@@ -384,3 +384,6 @@ function restart(){
     goTown();
 }
 });
+
+const locationsJSON = JSON.stringify(locations, null, 2);
+console.log(locationsJSON);
