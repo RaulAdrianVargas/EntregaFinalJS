@@ -9,40 +9,17 @@ document.addEventListener('DOMContentLoaded', (event) => {
 function divAbout(){
     Swal.fire({
         title: "About the game",
-        text: "Bienvenido a mi videojuego creado en html, css y JavaScript.\n"+
-        "Estoy aprendiendo, por lo que cualquier consejito y comentario es mas que bienvenido.",
+        html: `
+            Bienvenido a mi videojuego creado en html, css y JavaScript.<br>
+            Estoy aprendiendo, por lo que cualquier consejito y comentario es mas que bienvenido.<br>
+            Nuestro staff<br>
+            <a href="../pages/partners.html" target="_blank">Mis excelentes colaboradores</a><br>`,
         icon: "info"
     });
     }
 
-    function aplicarModoOscuro(estaOscuro) {
-        if (estaOscuro) {
-            body.classList.add('dark-mode');
-        } else {
-            body.classList.remove('dark-mode');
-        }
-    }
-
-    function alternarModoOscuro() {
-        const estaEnModoOscuro = body.classList.toggle('dark-mode');
-        localStorage.setItem('modoOscuro', estaEnModoOscuro ? 'habilitado' : 'deshabilitado');
-        botonToggle.textContent = estaEnModoOscuro ? "Light" : "Dark";
-    }
-
-    function inicializarModoOscuro() {
-        const modoOscuroGuardado = localStorage.getItem('modoOscuro');
-        aplicarModoOscuro(modoOscuroGuardado === 'habilitado');
-        botonToggle.textContent = modoOscuroGuardado === 'habilitado' ? "Light" : "Dark";
-    }
-
-    inicializarModoOscuro();
-    botonToggle.addEventListener('click', alternarModoOscuro);
-
-
-
     // Event listener para mostrar el div al hacer clic en "Acerca del juego"
     btnAcercaDe.addEventListener("click", divAbout);
-
 
 //----------------------------------------------------------------------------------------
 
@@ -294,9 +271,6 @@ function divAbout(){
         }
     }
 */
-//-----------------------------------------------------------------------------------
-// Aca inicializa el juego
-    // startButton.addEventListener("click", empezarAventura)
 });
 
 function sweetAlertExit() {

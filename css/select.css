@@ -1,0 +1,189 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    background: url(../img/fondoVideojuego.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+.dark-mode {
+    background-image: url(../img/fondodark.jpg);
+    background-size: cover;
+    overflow: hidden;
+}
+
+.dark-mode .btnMenu{
+    background: #161616;
+    color: #6fb1bd;
+    width: fit-content;
+    padding: .8rem 4rem;
+    margin-bottom: .75rem;
+    /* text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.8); */
+    font-size: 1.25rem;
+    letter-spacing: .025em;
+    border: none;
+    border-radius: 55%;
+    box-shadow: inset 3px 3px 0 rgba(255, 255, 255, 0.5), inset -3px -3px 0 rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+
+h2{
+    margin-top: 12px;
+    text-align: center;
+    padding: 12px 8px;
+    background: #dde;
+    border-radius: 5px;
+}
+
+.game_selector {
+    height: 80vh;
+    /* background-color: rgba(0, 255, 255, 0.048); */
+    display: flex;
+    align-content: space-around;
+    justify-content: center;
+    flex-wrap: wrap;
+    row-gap: 2em;
+}
+
+.hero-container {
+    display: flex;
+    padding: 5.5rem;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+}
+
+.hero-container.centered {
+    justify-content: center; /* Centrar el contenedor de héroes */
+}
+
+.hero_container_1,
+.hero_container_2 {
+    display: flex;
+    margin: 0.7em;
+    width: 50%;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    text-align: center; 
+    transition: all 0.3s ease;
+}
+
+.hero_container_1 img,
+.hero_container_2 img {
+    width: 150px; /* Ajusta el tamaño de las imágenes según sea necesario */
+    height: 150px; /* Asegura que todas las imágenes tengan el mismo tamaño */
+    object-fit: contain; /* Mantiene las proporciones de las imágenes sin recortarlas */
+    margin-bottom: 0.5em;
+}
+
+#asesino img {
+    transform: scale(1.3); 
+    margin-top: 4px;
+}
+
+.statsElf {
+    margin-top: 12px;
+}
+
+span {
+    background: #ddd;
+    color: rgb(0, 0, 0);
+    display: inline-block;
+    margin-top: 0.5em;
+    padding: 1.3em; /* Añade padding para un mejor aspecto */
+    border-radius: 5px; /* Añade bordes redondeados */
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+   	align-items: center;
+}
+
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
+}
+
+.visible {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.5s linear;
+}
+
+.btnMenu{
+    position: absolute;
+    top: 10px;
+    right: 50px;
+    border: none;
+    padding: .8rem 4rem;
+    font-size: 14px;
+    z-index: 1000;
+    cursor: pointer;.btnMenu {
+    background: #fbfbfe;
+    color: #2a3b47;
+    width: 50%;
+    padding: .8rem 0;
+    margin-bottom: .75rem;
+    font-size: 1.25rem;
+    letter-spacing: .025em;
+    border: none;
+    border-radius: 55%;
+     box-shadow: inset 3px 3px 0 rgba(255, 255, 255, 0.5), inset -3px -3px 0 rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    }
+    width: fit-content;
+}
+
+
+button {
+    width: 25%;
+    padding: 12px 10px;
+    background: #fbfbfe;
+    border-radius: 20px;
+    border: none;
+    color: #2a3b47;
+    margin-top: 1em;
+    border: none;
+    border-radius: 55%;
+    box-shadow: inset 3px 3px 0 rgba(255,255,255,0.5),
+                inset -3px -3px 0 rgba(0,0,0,0.5);
+    cursor: pointer;
+    font-size: 1.25rem;
+    letter-spacing: .025em;
+}
+
+button:hover {
+    background: rgba(115, 107, 221, 1);;
+    cursor: pointer;
+}
+
+.selected {
+    border: 3px solid #ffcc00; 
+    box-shadow: 0 0 10px rgba(255, 204, 0, 0.5); 
+    transform: scale(1.2); 
+}
+
+.hero_container_1:not(.selected):not(.initial),
+.hero_container_2:not(.selected):not(.initial) {
+    filter: blur(3px); 
+    transform: scale(0.8); 
+}
+
+.selected img {
+    content: url(../img/asAtk.gif); 
+}
+
+/* Específicos para el elfo */
+#elfo.selected img {
+    content: url(../img/elfitoAtacando.gif);
+}

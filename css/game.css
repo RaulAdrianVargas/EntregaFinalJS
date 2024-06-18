@@ -5,14 +5,57 @@
 }
 
 body {
-    background-color: rgb(6, 6, 32);
+    background-color: rgb(87, 69, 13);
     width: 100vw;
     height: 100vh;
-    margin: 0; /* Asegura que no haya margen por defecto */
-    display: flex; /* Usa flexbox para centrar verticalmente */
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente */
+    margin: 0; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
     overflow: hidden;
+}
+
+.all{
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    overflow: hidden;
+}
+
+#pantallaDeEstado{
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    background: url(../img/Background.png);
+    background-size: contain;
+}
+
+#pantallaDeTienda{
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    background: url(../img/CanyonTavern.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.character{
+    display: flex;
+	width: 100%;
+}
+
+#characterGif{
+    width: 4.5em;
+}
+
+.enemigo{
+	display:flex;
+}
+
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
 }
 
 #text {
@@ -83,14 +126,13 @@ button{
     display: none;
     white-space: nowrap;
     color: black;
-    display: flex;
 }
 
 #mochilaButton {
-    display: none; /* Oculta el botón por defecto */
+    display: none; 
     position: fixed;
-    bottom: 20px; /* Distancia desde el borde inferior */
-    right: 20px; /* Distancia desde el borde derecho */
+    bottom: 20px; 
+    right: 20px; 
 }
 
 /* Media Queries para pantallas específicas */

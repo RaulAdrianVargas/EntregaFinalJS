@@ -1,12 +1,40 @@
 document.addEventListener('DOMContentLoaded', function(){
-let exp = 0;
-let salud = 100;
-let oro = 50;
-let armaActual = 0;
-let luchando;
-let saludMonstruo;
-let mochila = ['palo'];
-let mochilaVisible = false;
+   
+    let exp = 0;
+    let salud = 100;
+    let oro = 50;
+    let armaActual = 0;
+    let luchando;
+    let saludMonstruo;
+    let mochila = ['palo'];
+    let mochilaVisible = false;
+
+    // Cargar el estado del juego desde el Local Storage
+    // const savedGameState = loadGameState();
+    // if (savedGameState) {
+    //     exp = savedGameState.exp;
+    //     salud = savedGameState.salud;
+    //     oro = savedGameState.oro;
+    //     mochila = savedGameState.mochila;
+    // }
+
+    // Cargar el GIF del personaje desde el Local Storage
+    const savedCharacterGif = loadCharacterGif();
+    if (savedCharacterGif) {
+        document.getElementById('characterGif').src = savedCharacterGif;
+    }
+
+    // Cargar el personaje seleccionado desde el Local Storage
+    const selectedCharacter = loadSelectedCharacter();
+    if (selectedCharacter) {
+        document.getElementById('characterGif').src = selectedCharacter === 'asesino' ? '../img/asIddle.gif' : '../img/idle.gif';
+    }
+
+    // Guardar el estado del juego y el GIF del personaje antes de cerrar la ventana
+    window.addEventListener('beforeunload', function() {
+        saveGameState(exp, salud, oro, mochila);
+        saveCharacterGif(document.getElementById('characterGif').src);
+    });
 
 let eleccionJugador;
 const boton1 = document.querySelector('#button1');
@@ -21,11 +49,17 @@ const nombreDelMonstruo = document.querySelector('#monsterName');
 const saludDelMonstruo = document.querySelector('#monsterHealth');
 const divJuego = document.getElementById("#game");
 const mochilaDiv = document.getElementById('mochila');
+const pantallaBatalla = document.getElementById("pantallaDeEstado");
+const enemyGif = document.getElementById("enemyGif");
+const pantallaDeTienda = document.getElementById("pantallaDeTienda");
 
 document.getElementById('mochilaButton').addEventListener('click', function() {
-    mochilaVisible = !mochilaVisible; 
-    toggleMochilaDiv(mochilaVisible); 
+    if (locations.find(location => location.name === 'store')) { // Verifica si está en la tienda
+        mochilaVisible = !mochilaVisible; // Cambia el estado de la mochila solo si está en la tienda
+        toggleMochilaDiv(mochilaVisible); // Muestra u oculta la mochila según el nuevo estado
+    }
 });
+
 
 const weapons = [
     {
@@ -50,30 +84,34 @@ const monsters = [
     {
         name:"Slime",
         level: 2,
-        health:15, 
+        health:15,
+        image: '../img/spawnSlime.gif' 
     },
     {
         name:"Lobo",
         level: 8,
-        health:60, 
+        health: 60,
+        image: '../img/loboIdle.gif' 
     },
     {
-        name:"Oso Gigante",
+        name:"Lobo Boss",
         level: 20,
-        health: 300, 
+        health: 300,
+        image: '../img/loboBoss.gif' 
     },
     {
-        name:"Ladrón",
+        name:"Goblin",
         level: 30,
         health: 250,
+        image: '../imgGoblin.gif'
     },
 ]
 
 const locations = [
     {
         name: "plaza del pueblo",
-        "button text":["Ir a la tienda","Aventurarse en la cueva","Pelearle al jefe."],
-        "button functions": [goStore, goCave, fightBoss],
+        "button text":["Ir a la tienda","Aventurarse al bosque","Pelearle al jefe."],
+        "button functions": [goStore, goForest, fightBoss],
         text: "Estas en la plaza del pueblo. Ves un signo que dice 'Tienda'. ¿Que deseas hacer?."
     },
     {
@@ -83,10 +121,10 @@ const locations = [
         text: "Estas en la tienda. ¿Que te gustaria comprar?"
     },
     {
-        name: "cave",
+        name: "Forest",
         "button text": ["Pelear slime","Pelear bestia intimidante","Volver a la plaza."],
         "button functions":[figthSlime, fightBeast, goTown],
-        text: "Entraste a la cueva. Ves unos cuantos monstruos. ¿Que hacemos?."
+        text: "Entraste al bosque. Ves unos cuantos monstruos. ¿Que hacemos?."
     },
     {
         name: "fight",
@@ -121,7 +159,7 @@ const locations = [
     { 
         name: "pueblito 2", 
         "button text": ["Tienda","Bosque","Volver al pueblo anterior"], 
-        "button functions":[goStore, goCave, goTown], 
+        "button functions":[goStore, goForest, goTown], 
         text: "Queres jugar al cara o cruz? La apuesta vale 10 monedas. Si ganas te llevas 50. Y si perdes, perdes 20 de vida." 
     },
 ];
@@ -156,12 +194,34 @@ const closeButton = document.querySelector('#closeButton');
     });
 
 boton1.onclick= goStore;
-boton2.onclick= goCave;
+boton2.onclick= goForest;
 boton3.onclick= fightBoss;
 
+
+
 function toggleMochilaDiv(show) {
-    mochilaDiv.style.display = show ? 'block' : 'none';
+    if (show) {
+        mochilaDiv.style.display = 'block';
+        mochilaDiv.style.textAlign = 'center';
+        mochilaDiv.style.position = 'absolute';
+        mochilaDiv.style.top = '-50px';
+        mochilaDiv.style.left = '100px';
+        mochilaDiv.style.height = '200px';
+        mochilaDiv.style.width = '300px';
+        mochilaDiv.style.background = 'rgba(255, 255, 255, 0.97)';
+        mochilaDiv.style.borderRadius = '22px';
+        document.querySelectorAll('*').forEach(el => {
+            el.style.overflow = 'visible';
+        });
+    } else {
+        mochilaDiv.style.display = 'none';
+        document.querySelectorAll('*').forEach(el => {
+            el.style.overflow = 'hidden';
+        });
+    }
 }
+
+
 
 document.getElementById('mochilaButton').addEventListener('click', function() {
     if (location.name === 'store') {
@@ -182,17 +242,36 @@ function update(location){
 
     if (location.name === 'store') {
         document.getElementById('mochilaButton').style.display = 'block';
+        pantallaDeTienda.classList.remove("hidden");
+        pantallaDeTienda.style.height = "250px" ;
     } else {
         document.getElementById('mochilaButton').style.display = 'none';
+        pantallaDeTienda.classList.add("hidden");
+        pantallaDeTienda.style.height = "auto";
     }
+
     const mochilaHTML = mochila.map(item => `<p>${item}</p>`).join('');
     document.getElementById('mochila').innerHTML = `<h3>Mochila:</h3>${mochilaHTML}`;
     if (location.name === 'store') {
         toggleMochilaDiv(mochilaVisible);
     } else {
         toggleMochilaDiv(false);
+    };
+    
+
+    if (location.name === 'fight') {
+        pantallaBatalla.classList.remove("hidden");
+        updateMonsterImg();
+    } else {
+        pantallaBatalla.classList.add("hidden");
     }
 }
+
+
+const updateMonsterImg = () => {
+    enemyGif.src = monsters[luchando].image;
+}
+
 
 function goTown(){
     update(locations[0]);
@@ -207,11 +286,10 @@ function goStore(){
 
 }
 
-function goCave(){
+function goForest(){
     update(locations[2])
-    console.log("Going to cave.")
+    console.log("Going to Forest.")
 }
-
 
 
 function buyHealth(){

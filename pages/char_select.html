@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/select.css">
+    <title>Select Screen</title>
+</head>
+<body>
+    <form action="game.html">
+        <h2>Elige tu personaje</h2>
+        <div class="game_selector">
+            <div class="hero-container">
+                <div class="hero_container_1 selectable" data-selected="false" id="asesino"><img alt="Asesino" src="../img/asIddle.gif" id="warriorImg">
+                <span class="statsAs">Maestro espadachín</span></div>
+                <div class="hero_container_2 selectable" data-selected="false" id="elfo"><img alt="Elfo" src="../img/idle.gif"><span class="statsElf">Maestro arquero</span></div>
+            </div>
+            <button id="characterSeleccionado" type="submit" class="hidden"  disabled >Seleccionar héroe</button>
+            <!-- <button type="button" class="btnMenu" id="toggleButton">M.Oscuro</button> -->
+             <a href="../index.html"><button type="button" class="btnMenu" ><i class="fa-solid fa-house"></i></button></a>
+        </div>
+    
+    </form>
+
+    <script src="https://kit.fontawesome.com/268c12d3e3.js" crossorigin="anonymous"></script>
+    <script src="../js/localStorageManager.js"></script>
+    <script src="../js/modo_oscuro.js"></script>
+    <script src="../js/selector.js"></script>
+</body>
+</html>
