@@ -160,7 +160,7 @@ const locations = [
         name: "pueblito 2", 
         "button text": ["Tienda","Bosque","Volver al pueblo anterior"], 
         "button functions":[goStore, goForest, goTown], 
-        text: "Queres jugar al cara o cruz? La apuesta vale 10 monedas. Si ganas te llevas 50. Y si perdes, perdes 20 de vida." 
+        text: "Entraste a un nuevo pueblo. Se escucha mucha gente alrededor. Ves una Tiendita. ¿Que deseas hacer?." 
     },
 ];
 
@@ -278,7 +278,7 @@ function goTown(){
 }
 
 function goTown2(){
-    update(locations[9]);
+    update(locations[8]);
 }
 
 function goStore(){
