@@ -471,7 +471,7 @@ function viajePeligroso(){
             textoSalud.innerText = salud;
             }else{
                 texto.innerText= "Te encontraste con alguien demasiado poderoso. Te da una paliza y te deja en la entrada del pueblo."
-                setTimeout(goTown, 2000);
+                setTimeout(goTown2, 2000);
             }
         } else if (eventoAlAzar === 3){
             console.log("Escuchas un ruido que viene desde los matorrales. Te ataca un ladrón.");
