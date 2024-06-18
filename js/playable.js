@@ -134,8 +134,8 @@ const locations = [
     },
     {
         name: "Kill Monster",
-        "button text": ["Volver a la plaza","Volver a la plaza","Opa, te gusta apostar?"],
-        "button functions":[goTown, goTown, tirarMoneda],
+        "button text": ["Volver a la plaza","Seguir entrenando","Opa, te gusta apostar?"],
+        "button functions":[goTown, goForest, tirarMoneda],
         text: "Derrotaste al monstruo! Se escucha un 'Argh!' a traves de las paredes de la cueva. Ganaste experiencia y oro."
     },
     {
