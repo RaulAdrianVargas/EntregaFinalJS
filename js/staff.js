@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', (event) => {
+
 function obtenerPersonajes(done) {
     const results = fetch("https://rickandmortyapi.com/api/character");
 
@@ -42,5 +42,4 @@ obtenerPersonajes(personajes => {
         const main = document.querySelector("main");
         main.appendChild(article);
     });
-});
 });
