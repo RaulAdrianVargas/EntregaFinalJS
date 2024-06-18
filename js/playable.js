@@ -278,7 +278,7 @@ function goTown(){
 }
 
 function goTown2(){
-    update(locations[8]);
+    update(locations[9]);
 }
 
 function goStore(){
