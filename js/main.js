@@ -12,8 +12,7 @@ function divAbout(){
         html: `
             Bienvenido a mi videojuego creado en html, css y JavaScript.<br>
             Estoy aprendiendo, por lo que cualquier consejito y comentario es mas que bienvenido.<br>
-            Nuestro staff<br>
-            <a href="../pages/partners.html" target="_blank">Mis excelentes colaboradores</a><br>`,
+            `,
         icon: "info"
     });
     }
