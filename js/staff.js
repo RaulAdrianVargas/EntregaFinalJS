@@ -9,6 +9,8 @@ function obtenerPersonajes(done) {
             done(ricks);
         });
 }
+const botonSalir = document.getElementById("btnSalir");
+
 
 obtenerPersonajes(personajes => {
     personajes.forEach(personaje => {
