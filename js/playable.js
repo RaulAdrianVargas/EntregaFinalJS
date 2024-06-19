@@ -44,6 +44,7 @@ const mochilaDiv = document.getElementById('mochila');
 const pantallaBatalla = document.getElementById("pantallaDeEstado");
 const enemyGif = document.getElementById("enemyGif");
 const pantallaDeTienda = document.getElementById("pantallaDeTienda");
+const mochilaButton = document.getElementById("mochilaButton");
 
 document.getElementById('mochilaButton').addEventListener('click', function() {
     if (locations.find(location => location.name === 'store')) { // Verifica si está en la tienda
