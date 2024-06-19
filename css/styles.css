@@ -91,7 +91,7 @@ a .btnMenu{
     background: #161616;
     color: #6fb1bd;
     width: 60%;
-    padding: .8rem 0;
+    /* padding: .8rem 0; */
     margin-bottom: .75rem;
     /* text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.8); */
     font-size: 1.25rem;
@@ -107,7 +107,7 @@ a .btnMenu{
     background: #161616;
     color: #6fb1bd;
     width: 100%;
-    padding: .8rem 4rem;
+    /* padding: .8rem 4rem; */
     margin-bottom: .75rem;
     /* text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.8); */
     font-size: 1.25rem;
