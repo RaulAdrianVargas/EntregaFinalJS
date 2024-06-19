@@ -74,7 +74,6 @@ body {
     margin: 0 auto;
     padding: 10px;
     font-size: 18px;
-
 }
 
 #controls {
@@ -82,10 +81,9 @@ body {
     padding: 5px;
 }
 
-button{
+button {
     font-size: 16px;
 }
-
 
 #stats {
     border: 1px black solid;
@@ -129,7 +127,6 @@ button{
 }
 
 #mochilaButton {
-    display: none; 
     position: fixed;
     bottom: 20px; 
     right: 20px; 
@@ -170,7 +167,7 @@ button{
     #text,
     #game,
     #controls,
-    #stats{
+    #stats {
         font-size: 21px;
     }
 

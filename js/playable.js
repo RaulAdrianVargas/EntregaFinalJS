@@ -9,14 +9,6 @@ document.addEventListener('DOMContentLoaded', function(){
     let mochila = ['palo'];
     let mochilaVisible = false;
 
-    // Cargar el estado del juego desde el Local Storage
-    // const savedGameState = loadGameState();
-    // if (savedGameState) {
-    //     exp = savedGameState.exp;
-    //     salud = savedGameState.salud;
-    //     oro = savedGameState.oro;
-    //     mochila = savedGameState.mochila;
-    // }
 
     // Cargar el GIF del personaje desde el Local Storage
     const savedCharacterGif = loadCharacterGif();
@@ -204,9 +196,10 @@ function toggleMochilaDiv(show) {
         mochilaDiv.style.display = 'block';
         mochilaDiv.style.textAlign = 'center';
         mochilaDiv.style.position = 'absolute';
-        mochilaDiv.style.top = '-50px';
+        mochilaDiv.style.top = '-150px';
         mochilaDiv.style.left = '100px';
-        mochilaDiv.style.height = '200px';
+        mochilaDiv.style.minHeight = '200px';
+        mochilaDiv.style.height = "auto";
         mochilaDiv.style.width = '300px';
         mochilaDiv.style.background = 'rgba(255, 255, 255, 0.97)';
         mochilaDiv.style.borderRadius = '22px';
@@ -244,14 +237,16 @@ function update(location){
         document.getElementById('mochilaButton').style.display = 'block';
         pantallaDeTienda.classList.remove("hidden");
         pantallaDeTienda.style.height = "250px" ;
+        pantallaBatalla.style.display = "none";
     } else {
         document.getElementById('mochilaButton').style.display = 'none';
         pantallaDeTienda.classList.add("hidden");
         pantallaDeTienda.style.height = "auto";
+        pantallaBatalla.style.display = "flex";
     }
 
     const mochilaHTML = mochila.map(item => `<p>${item}</p>`).join('');
-    document.getElementById('mochila').innerHTML = `<h3>Mochila:</h3>${mochilaHTML}`;
+    let mochilaActual = document.getElementById('mochila').innerHTML = `<h3>Mochila:</h3>${mochilaHTML}`;
     if (location.name === 'store') {
         toggleMochilaDiv(mochilaVisible);
     } else {
@@ -305,6 +300,7 @@ function buyHealth(){
 
 }
 
+
 function buyWeapon(){
     if(armaActual < weapons.length - 1){
         if(oro >= 30){
@@ -335,6 +331,8 @@ function sellWeapon(){
         let armaActual = mochila.shift();
         texto.innerText= "Vendiste: "+ armaActual;
         texto.innerText+= "Ahora tenes: " + mochila;
+        const mochilaHTML = mochila.map(item => `<p>${item}</p>`).join('');
+        document.getElementById('mochila').innerHTML = `<h3>Mochila:</h3>${mochilaHTML}`;
     }else{
         texto.innerText="No vendas tu unica arma!.";
     }

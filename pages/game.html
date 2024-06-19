@@ -4,23 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/game.css">
-    <title>Juego RPG | Estilo windows 97</title>
+    <title>Juego RPG | Estilo Windows 97</title>
 </head>
 <body>
-    <body>
-        <div class="all">
-            <div id="pantallaDeEstado" class="hidden" >
-                <div class="character">
-                    <img id="characterGif" src="../img/idle.gif" alt="Character">
-                </div>
-                <div class="enemigo">
-                    <img id="enemyGif" src="" alt="Enemy">
-                </div>
+    <div class="all">
+        <div id="pantallaDeEstado" class="hidden">
+            <div class="character">
+                <img id="characterGif" src="../img/idle.gif" alt="Character">
             </div>
-            <div id="pantallaDeTienda" class="hidden" >
-                <div class="storeimg"></div>
-            </div>   
-            <div id="game">
+            <div class="enemigo">
+                <img id="enemyGif" src="" alt="Enemy">
+            </div>
+        </div>
+        <div id="pantallaDeTienda" class="hidden">
+            <div class="storeimg"></div>
+        </div>   
+        <div id="game">
             <div id="stats">
                 <button id="closeButton">x</button>
                 <span class="stat">XP: <strong><span id="xpText">0</span></strong></span>
@@ -33,19 +32,18 @@
                 <button id="button3">Pelearle al jefe</button>
             </div>
             <div id="mochila"></div>
-                <button id="mochilaButton" style="display: none;">Mostrar Mochila</button>
+            <button id="mochilaButton">Mostrar Mochila</button>
             <div id="monsterStats">
                 <span class="stat">Nombre del monstruo: <strong><span id="monsterName"></span></strong></span>
                 <span class="stat">Salud: <strong><span id="monsterHealth"></span></strong></span>
             </div>
-            <div id="text">Buenas, este es el jueguito rpg. Debes derrotar al jefe que no deja escapar a la pobre gente del pueblo. Ahora estas en el centro del pueblo. ¿Donde te gustaria ir? Click en los botones.</div>
-            </div>
+            <div id="text">Buenas, este es el jueguito rpg. Debes derrotar al jefe que no deja escapar a la pobre gente del pueblo. Ahora estás en el centro del pueblo. ¿Dónde te gustaría ir? Haz clic en los botones.</div>
         </div>
+    </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script src="https://kit.fontawesome.com/268c12d3e3.js" crossorigin="anonymous"></script>
-        <script src="../js/localStorageManager.js"></script>
-        <script src="../js/playable.js"></script>
-        </body>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://kit.fontawesome.com/268c12d3e3.js" crossorigin="anonymous"></script>
+    <script src="../js/localStorageManager.js"></script>
+    <script src="../js/playable.js"></script>
 </body>
 </html> 
